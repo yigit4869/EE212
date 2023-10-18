@@ -1,1 +1,1 @@
-Bilkent EE212 FALL 2023
+Bilkent EE212 FALL 2023 Labs
