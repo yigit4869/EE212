@@ -1,0 +1,412 @@
+yigit_lab2_part1                                                                                                        PAGE 1
+                         1     ORG 0h
+0000 758911              2     MOV TMOD,#11H
+                         3
+                         4     C5: ;523Hz 1912us
+0003 7D82                5     MOV R5,#130D
+0005 7C02                6     MOV R4,#2D
+0007 7D82                7     LOOP11: MOV R5, #130D
+                         8     LOOP1:
+0009 D290                9     SETB P1.0
+000B 758A44             10     MOV TL0,#44H
+000E 758CFC             11     MOV TH0,#0FCH
+0011 D28C               12     SETB TR0
+0013 308DFD             13     WAIT1: JNB TF0,WAIT1
+0016 C28C               14     CLR TR0
+0018 C28D               15     CLR TF0
+001A C290               16     CLR P1.0
+001C 758A44             17     MOV TL0,#44H
+001F 758CFC             18     MOV TH0,#0FCH
+0022 D28C               19     SETB TR0
+0024 308DFD             20     WAIT2: JNB TF0,WAIT2
+0027 C28C               21     CLR TR0
+0029 C28D               22     CLR TF0
+                        23
+002B DDDC               24     DJNZ R5, LOOP1
+002D DCD8               25     DJNZ R4, LOOP11
+                        26
+                        27
+                        28     D5: ;587Hz 1703
+002F 7D8A               29     MOV R5,#138D
+0031 7C02               30     MOV R4,#2D
+0033 7D8A               31     LOOP22: MOV R5, #138D
+                        32     LOOP2:
+0035 D290               33     SETB P1.0
+0037 758AAD             34     MOV TL0,#0ADH
+003A 758CFC             35     MOV TH0,#0FCH
+003D D28C               36     SETB TR0
+003F 308DFD             37     WAIT3: JNB TF0,WAIT3
+0042 C28C               38     CLR TR0
+0044 C28D               39     CLR TF0
+0046 C290               40     CLR P1.0
+0048 758AAD             41     MOV TL0,#0ADH
+004B 758CFC             42     MOV TH0,#0FCH
+004E D28C               43     SETB TR0
+0050 308DFD             44     WAIT4: JNB TF0,WAIT4
+0053 C28C               45     CLR TR0
+0055 C28D               46     CLR TF0
+0057 DDDC               47     DJNZ R5, LOOP2
+0059 DCD8               48     DJNZ R4, LOOP22
+                        49
+                        50
+                        51     E5: ;659Hz 1517
+005B 7DA4               52     MOV R5,#164D
+005D 7C02               53     MOV R4,#2D
+005F 7DA4               54     LOOP33: MOV R5, #164D
+                        55     LOOP3:
+0061 D290               56     SETB P1.0
+0063 758A0A             57     MOV TL0,#0AH
+0066 758CFD             58     MOV TH0,#0FDH
+0069 D28C               59     SETB TR0
+006B 308DFD             60     WAIT5: JNB TF0,WAIT5
+006E C28C               61     CLR TR0
+0070 C28D               62     CLR TF0
+0072 C290               63     CLR P1.0
+0074 758A0A             64     MOV TL0,#0AH
+0077 758CFD             65     MOV TH0,#0FDH
+007A D28C               66     SETB TR0
+007C 308DFD             67     WAIT6: JNB TF0,WAIT6
+007F C28C               68     CLR TR0
+0081 C28D               69     CLR TF0
+0083 DDDC               70     DJNZ R5, LOOP3
+0085 DCD8               71     DJNZ R4, LOOP33
+                        72
+                        73     F5: ;698Hz 1433
+0087 7DA9               74     MOV R5,#169D
+0089 7C02               75     MOV R4,#2D
+008B 7DA9               76     LOOP44: MOV R5, #169D
+                        77     LOOP4:
+008D D290               78     SETB P1.0
+008F 758A34             79     MOV TL0,#34H
+0092 758CFD             80     MOV TH0,#0FDH
+0095 D28C               81     SETB TR0
+0097 308DFD             82     WAIT7: JNB TF0,WAIT7
+009A C28C               83     CLR TR0
+009C C28D               84     CLR TF0
+009E C290               85     CLR P1.0
+00A0 758A34             86     MOV TL0,#34H
+00A3 758CFD             87     MOV TH0,#0FDH
+00A6 D28C               88     SETB TR0
+00A8 308DFD             89     WAIT8: JNB TF0,WAIT8
+00AB C28C               90     CLR TR0
+00AD C28D               91     CLR TF0
+00AF DDDC               92     DJNZ R5, LOOP4
+00B1 DCD8               93     DJNZ R4, LOOP44
+                        94
+                        95     G5: ;784Hz 1275
+00B3 7DC4               96     MOV R5,#196D
+00B5 7C02               97     MOV R4,#2D
+00B7 7DC4               98     LOOP55: MOV R5, #196D
+                        99     LOOP5:
+00B9 D290              100     SETB P1.0
+00BB 758A83            101     MOV TL0,#83H
+00BE 758CFD            102     MOV TH0,#0FDH
+00C1 D28C              103     SETB TR0
+00C3 308DFD            104     WAIT9: JNB TF0,WAIT9
+00C6 C28C              105     CLR TR0
+00C8 C28D              106     CLR TF0
+00CA C290              107     CLR P1.0
+00CC 758A83            108     MOV TL0,#83H
+00CF 758CFD            109     MOV TH0,#0FDH
+00D2 D28C              110     SETB TR0
+00D4 308DFD            111     WAIT10: JNB TF0,WAIT10
+00D7 C28C              112     CLR TR0
+00D9 C28D              113     CLR TF0
+00DB DDDC              114     DJNZ R5, LOOP5
+00DD DCD8              115     DJNZ R4, LOOP55
+                       116
+                       117     A5: ;880Hz 1136
+00DF 7DDC              118     MOV R5,#220D
+00E1 7C02              119     MOV R4,#2D
+00E3 7DDC              120     LOOP66: MOV R5, #220D
+                       121     LOOP6:
+00E5 D290              122     SETB P1.0
+00E7 758AC8            123     MOV TL0,#0C8H
+00EA 758CFD            124     MOV TH0,#0FDH
+00ED D28C              125     SETB TR0
+00EF 308DFD            126     WAIT11: JNB TF0,WAIT11
+00F2 C28C              127     CLR TR0
+00F4 C28D              128     CLR TF0
+00F6 C290              129     CLR P1.0
+00F8 758AC8            130     MOV TL0,#0C8H
+00FB 758CFD            131     MOV TH0,#0FDH
+00FE D28C              132     SETB TR0
+0100 308DFD            133     WAIT12: JNB TF0,WAIT12
+0103 C28C              134     CLR TR0
+0105 C28D              135     CLR TF0
+0107 DDDC              136     DJNZ R5, LOOP6
+0109 DCD8              137     DJNZ R4, LOOP66
+                       138
+                       139     B5: ;987.77Hz 1012
+010B 7DF7              140     MOV R5,#247D
+010D 7C02              141     MOV R4,#2D
+010F 7DF7              142     LOOP77: MOV R5, #247D
+                       143     LOOP7:
+0111 D290              144     SETB P1.0
+0113 758A06            145     MOV TL0,#06H
+0116 758CFE            146     MOV TH0,#0FEH
+0119 D28C              147     SETB TR0
+011B 308DFD            148     WAIT13: JNB TF0,WAIT13
+011E C28C              149     CLR TR0
+0120 C28D              150     CLR TF0
+0122 C290              151     CLR P1.0
+0124 758A06            152     MOV TL0,#06H
+0127 758CFE            153     MOV TH0,#0FEH
+012A D28C              154     SETB TR0
+012C 308DFD            155     WAIT14: JNB TF0,WAIT14
+012F C28C              156     CLR TR0
+0131 C28D              157     CLR TF0
+0133 DDDC              158     DJNZ R5, LOOP7
+0135 DCD8              159     DJNZ R4, LOOP77
+                       160
+                       161
+                       162     C6: ;1046Hz 955
+0137 7DAE              163     MOV R5,#174D
+0139 7C03              164     MOV R4,#3D
+013B 7DAE              165     LOOP88: MOV R5, #174D
+                       166     LOOP8:
+013D D290              167     SETB P1.0
+013F 758A23            168     MOV TL0,#23H
+0142 758CFE            169     MOV TH0,#0FEH
+0145 D28C              170     SETB TR0
+0147 308DFD            171     WAIT15: JNB TF0,WAIT15
+014A C28C              172     CLR TR0
+014C C28D              173     CLR TF0
+014E C290              174     CLR P1.0
+0150 758A23            175     MOV TL0,#23H
+0153 758CFE            176     MOV TH0,#0FEH
+0156 D28C              177     SETB TR0
+0158 308DFD            178     WAIT16: JNB TF0,WAIT16
+015B C28C              179     CLR TR0
+015D C28D              180     CLR TF0
+015F DDDC              181     DJNZ R5, LOOP8
+0161 DCD8              182     DJNZ R4, LOOP88
+                       183
+                       184
+0163 020003            185     LJMP C5
+                       186
+                       187     END
+ASSEMBLY COMPLETE, NO ERRORS FOUND, NO WARNINGS
+
+
+SYMBOL TABLE:
+??MCU_8051_IDE . . . . . . . . . . .  N  NUMB  8051H  NOT USED
+??VERSION. . . . . . . . . . . . . .  N  NUMB  0149H  NOT USED
+A5 . . . . . . . . . . . . . . . . .  C  ADDR  00DFH  NOT USED
+AC . . . . . . . . . . . . . . . . .  B  ADDR  00D6H  NOT USED
+ACC. . . . . . . . . . . . . . . . .  D  ADDR  00E0H  NOT USED
+ACSR . . . . . . . . . . . . . . . .  D  ADDR  0097H  NOT USED
+ADCF . . . . . . . . . . . . . . . .  D  ADDR  00F6H  NOT USED
+ADCLK. . . . . . . . . . . . . . . .  D  ADDR  00F2H  NOT USED
+ADCON. . . . . . . . . . . . . . . .  D  ADDR  00F3H  NOT USED
+ADDH . . . . . . . . . . . . . . . .  D  ADDR  00F5H  NOT USED
+ADDL . . . . . . . . . . . . . . . .  D  ADDR  00F4H  NOT USED
+AUXR . . . . . . . . . . . . . . . .  D  ADDR  008EH  NOT USED
+AUXR1. . . . . . . . . . . . . . . .  D  ADDR  00A2H  NOT USED
+B. . . . . . . . . . . . . . . . . .  D  ADDR  00F0H  NOT USED
+B5 . . . . . . . . . . . . . . . . .  C  ADDR  010BH  NOT USED
+BDRCON . . . . . . . . . . . . . . .  D  ADDR  009BH  NOT USED
+BDRCON_1 . . . . . . . . . . . . . .  D  ADDR  009CH  NOT USED
+BRL. . . . . . . . . . . . . . . . .  D  ADDR  009AH  NOT USED
+C5 . . . . . . . . . . . . . . . . .  C  ADDR  0003H
+C6 . . . . . . . . . . . . . . . . .  C  ADDR  0137H  NOT USED
+CCAP0H . . . . . . . . . . . . . . .  D  ADDR  00FAH  NOT USED
+CCAP0L . . . . . . . . . . . . . . .  D  ADDR  00EAH  NOT USED
+CCAP1H . . . . . . . . . . . . . . .  D  ADDR  00FBH  NOT USED
+CCAP1L . . . . . . . . . . . . . . .  D  ADDR  00EBH  NOT USED
+CCAP2H . . . . . . . . . . . . . . .  D  ADDR  00FCH  NOT USED
+CCAP3H . . . . . . . . . . . . . . .  D  ADDR  00FDH  NOT USED
+CCAP4H . . . . . . . . . . . . . . .  D  ADDR  00FEH  NOT USED
+CCAPL2H. . . . . . . . . . . . . . .  D  ADDR  00FCH  NOT USED
+CCAPL2L. . . . . . . . . . . . . . .  D  ADDR  00ECH  NOT USED
+CCAPL3H. . . . . . . . . . . . . . .  D  ADDR  00FDH  NOT USED
+CCAPL3L. . . . . . . . . . . . . . .  D  ADDR  00EDH  NOT USED
+CCAPL4H. . . . . . . . . . . . . . .  D  ADDR  00FEH  NOT USED
+CCAPL4L. . . . . . . . . . . . . . .  D  ADDR  00EEH  NOT USED
+CCAPM0 . . . . . . . . . . . . . . .  D  ADDR  00DAH  NOT USED
+CCAPM1 . . . . . . . . . . . . . . .  D  ADDR  00DBH  NOT USED
+CCAPM2 . . . . . . . . . . . . . . .  D  ADDR  00DCH  NOT USED
+CCAPM3 . . . . . . . . . . . . . . .  D  ADDR  00DDH  NOT USED
+CCAPM4 . . . . . . . . . . . . . . .  D  ADDR  00DEH  NOT USED
+CCF0 . . . . . . . . . . . . . . . .  B  ADDR  00D8H  NOT USED
+CCF1 . . . . . . . . . . . . . . . .  B  ADDR  00D9H  NOT USED
+CCF2 . . . . . . . . . . . . . . . .  B  ADDR  00DAH  NOT USED
+CCF3 . . . . . . . . . . . . . . . .  B  ADDR  00DBH  NOT USED
+CCF4 . . . . . . . . . . . . . . . .  B  ADDR  00DCH  NOT USED
+CCON . . . . . . . . . . . . . . . .  D  ADDR  00D8H  NOT USED
+CFINT. . . . . . . . . . . . . . . .  C  ADDR  0033H  NOT USED
+CH . . . . . . . . . . . . . . . . .  D  ADDR  00F9H  NOT USED
+CKCON. . . . . . . . . . . . . . . .  D  ADDR  008FH  NOT USED
+CKCON0 . . . . . . . . . . . . . . .  D  ADDR  008FH  NOT USED
+CKRL . . . . . . . . . . . . . . . .  D  ADDR  0097H  NOT USED
+CKSEL. . . . . . . . . . . . . . . .  D  ADDR  0085H  NOT USED
+CL . . . . . . . . . . . . . . . . .  D  ADDR  00E9H  NOT USED
+CLKREG . . . . . . . . . . . . . . .  D  ADDR  008FH  NOT USED
+CMOD . . . . . . . . . . . . . . . .  D  ADDR  00D9H  NOT USED
+CPRL2. . . . . . . . . . . . . . . .  B  ADDR  00C8H  NOT USED
+CR . . . . . . . . . . . . . . . . .  B  ADDR  00DEH  NOT USED
+CT2. . . . . . . . . . . . . . . . .  B  ADDR  00C9H  NOT USED
+CY . . . . . . . . . . . . . . . . .  B  ADDR  00D7H  NOT USED
+D5 . . . . . . . . . . . . . . . . .  C  ADDR  002FH  NOT USED
+DP0H . . . . . . . . . . . . . . . .  D  ADDR  0083H  NOT USED
+DP0L . . . . . . . . . . . . . . . .  D  ADDR  0082H  NOT USED
+DP1H . . . . . . . . . . . . . . . .  D  ADDR  0085H  NOT USED
+DP1L . . . . . . . . . . . . . . . .  D  ADDR  0084H  NOT USED
+DPH. . . . . . . . . . . . . . . . .  D  ADDR  0083H  NOT USED
+DPL. . . . . . . . . . . . . . . . .  D  ADDR  0082H  NOT USED
+E5 . . . . . . . . . . . . . . . . .  C  ADDR  005BH  NOT USED
+EA . . . . . . . . . . . . . . . . .  B  ADDR  00AFH  NOT USED
+EC . . . . . . . . . . . . . . . . .  B  ADDR  00AEH  NOT USED
+EECON. . . . . . . . . . . . . . . .  D  ADDR  0096H  NOT USED
+ES . . . . . . . . . . . . . . . . .  B  ADDR  00ACH  NOT USED
+ET0. . . . . . . . . . . . . . . . .  B  ADDR  00A9H  NOT USED
+ET1. . . . . . . . . . . . . . . . .  B  ADDR  00ABH  NOT USED
+ET2. . . . . . . . . . . . . . . . .  B  ADDR  00ADH  NOT USED
+EX0. . . . . . . . . . . . . . . . .  B  ADDR  00A8H  NOT USED
+EX1. . . . . . . . . . . . . . . . .  B  ADDR  00AAH  NOT USED
+EXEN2. . . . . . . . . . . . . . . .  B  ADDR  00CBH  NOT USED
+EXF2 . . . . . . . . . . . . . . . .  B  ADDR  00CEH  NOT USED
+EXTI0. . . . . . . . . . . . . . . .  C  ADDR  0003H  NOT USED
+EXTI1. . . . . . . . . . . . . . . .  C  ADDR  0013H  NOT USED
+F0 . . . . . . . . . . . . . . . . .  B  ADDR  00D5H  NOT USED
+F5 . . . . . . . . . . . . . . . . .  C  ADDR  0087H  NOT USED
+FE . . . . . . . . . . . . . . . . .  B  ADDR  009FH  NOT USED
+G5 . . . . . . . . . . . . . . . . .  C  ADDR  00B3H  NOT USED
+IE . . . . . . . . . . . . . . . . .  D  ADDR  00A8H  NOT USED
+IE0. . . . . . . . . . . . . . . . .  B  ADDR  0089H  NOT USED
+IE1. . . . . . . . . . . . . . . . .  B  ADDR  008BH  NOT USED
+INT0 . . . . . . . . . . . . . . . .  B  ADDR  00B2H  NOT USED
+INT1 . . . . . . . . . . . . . . . .  B  ADDR  00B3H  NOT USED
+IP . . . . . . . . . . . . . . . . .  D  ADDR  00B8H  NOT USED
+IPH. . . . . . . . . . . . . . . . .  D  ADDR  00B7H  NOT USED
+IPH0 . . . . . . . . . . . . . . . .  D  ADDR  00B7H  NOT USED
+IPH1 . . . . . . . . . . . . . . . .  D  ADDR  00B3H  NOT USED
+IPL0 . . . . . . . . . . . . . . . .  D  ADDR  00B8H  NOT USED
+IPL1 . . . . . . . . . . . . . . . .  D  ADDR  00B2H  NOT USED
+IT0. . . . . . . . . . . . . . . . .  B  ADDR  0088H  NOT USED
+IT1. . . . . . . . . . . . . . . . .  B  ADDR  008AH  NOT USED
+KBE. . . . . . . . . . . . . . . . .  D  ADDR  009DH  NOT USED
+KBF. . . . . . . . . . . . . . . . .  D  ADDR  009EH  NOT USED
+KBLS . . . . . . . . . . . . . . . .  D  ADDR  009CH  NOT USED
+LOOP1. . . . . . . . . . . . . . . .  C  ADDR  0009H
+LOOP11 . . . . . . . . . . . . . . .  C  ADDR  0007H
+LOOP2. . . . . . . . . . . . . . . .  C  ADDR  0035H
+LOOP22 . . . . . . . . . . . . . . .  C  ADDR  0033H
+LOOP3. . . . . . . . . . . . . . . .  C  ADDR  0061H
+LOOP33 . . . . . . . . . . . . . . .  C  ADDR  005FH
+LOOP4. . . . . . . . . . . . . . . .  C  ADDR  008DH
+LOOP44 . . . . . . . . . . . . . . .  C  ADDR  008BH
+LOOP5. . . . . . . . . . . . . . . .  C  ADDR  00B9H
+LOOP55 . . . . . . . . . . . . . . .  C  ADDR  00B7H
+LOOP6. . . . . . . . . . . . . . . .  C  ADDR  00E5H
+LOOP66 . . . . . . . . . . . . . . .  C  ADDR  00E3H
+LOOP7. . . . . . . . . . . . . . . .  C  ADDR  0111H
+LOOP77 . . . . . . . . . . . . . . .  C  ADDR  010FH
+LOOP8. . . . . . . . . . . . . . . .  C  ADDR  013DH
+LOOP88 . . . . . . . . . . . . . . .  C  ADDR  013BH
+OSCCON . . . . . . . . . . . . . . .  D  ADDR  0086H  NOT USED
+OV . . . . . . . . . . . . . . . . .  B  ADDR  00D2H  NOT USED
+P. . . . . . . . . . . . . . . . . .  B  ADDR  00D0H  NOT USED
+P0 . . . . . . . . . . . . . . . . .  D  ADDR  0080H  NOT USED
+P1 . . . . . . . . . . . . . . . . .  D  ADDR  0090H
+P1M1 . . . . . . . . . . . . . . . .  D  ADDR  00D4H  NOT USED
+P1M2 . . . . . . . . . . . . . . . .  D  ADDR  00E2H  NOT USED
+P2 . . . . . . . . . . . . . . . . .  D  ADDR  00A0H  NOT USED
+P3 . . . . . . . . . . . . . . . . .  D  ADDR  00B0H  NOT USED
+P3M1 . . . . . . . . . . . . . . . .  D  ADDR  00D5H  NOT USED
+P3M2 . . . . . . . . . . . . . . . .  D  ADDR  00E3H  NOT USED
+P4 . . . . . . . . . . . . . . . . .  D  ADDR  00C0H  NOT USED
+P4M1 . . . . . . . . . . . . . . . .  D  ADDR  00D6H  NOT USED
+P4M2 . . . . . . . . . . . . . . . .  D  ADDR  00E4H  NOT USED
+P5 . . . . . . . . . . . . . . . . .  D  ADDR  00E8H  NOT USED
+PC . . . . . . . . . . . . . . . . .  B  ADDR  00BEH  NOT USED
+PCON . . . . . . . . . . . . . . . .  D  ADDR  0087H  NOT USED
+PPCL . . . . . . . . . . . . . . . .  B  ADDR  00BEH  NOT USED
+PS . . . . . . . . . . . . . . . . .  B  ADDR  00BCH  NOT USED
+PSL. . . . . . . . . . . . . . . . .  B  ADDR  00BCH  NOT USED
+PSW. . . . . . . . . . . . . . . . .  D  ADDR  00D0H  NOT USED
+PT0. . . . . . . . . . . . . . . . .  B  ADDR  00B9H  NOT USED
+PT0L . . . . . . . . . . . . . . . .  B  ADDR  00B9H  NOT USED
+PT1. . . . . . . . . . . . . . . . .  B  ADDR  00BBH  NOT USED
+PT1L . . . . . . . . . . . . . . . .  B  ADDR  00BBH  NOT USED
+PT2. . . . . . . . . . . . . . . . .  B  ADDR  00BDH  NOT USED
+PT2L . . . . . . . . . . . . . . . .  B  ADDR  00BDH  NOT USED
+PX0. . . . . . . . . . . . . . . . .  B  ADDR  00B8H  NOT USED
+PX0L . . . . . . . . . . . . . . . .  B  ADDR  00B8H  NOT USED
+PX1. . . . . . . . . . . . . . . . .  B  ADDR  00BAH  NOT USED
+PX1L . . . . . . . . . . . . . . . .  B  ADDR  00BAH  NOT USED
+RB8. . . . . . . . . . . . . . . . .  B  ADDR  009AH  NOT USED
+RCAP2H . . . . . . . . . . . . . . .  D  ADDR  00CBH  NOT USED
+RCAP2L . . . . . . . . . . . . . . .  D  ADDR  00CAH  NOT USED
+RCLK . . . . . . . . . . . . . . . .  B  ADDR  00CDH  NOT USED
+RD . . . . . . . . . . . . . . . . .  B  ADDR  00B7H  NOT USED
+REN. . . . . . . . . . . . . . . . .  B  ADDR  009CH  NOT USED
+RESET. . . . . . . . . . . . . . . .  C  ADDR  0000H  NOT USED
+RI . . . . . . . . . . . . . . . . .  B  ADDR  0098H  NOT USED
+RS0. . . . . . . . . . . . . . . . .  B  ADDR  00D3H  NOT USED
+RS1. . . . . . . . . . . . . . . . .  B  ADDR  00D4H  NOT USED
+RXD. . . . . . . . . . . . . . . . .  B  ADDR  00B0H  NOT USED
+SADDR. . . . . . . . . . . . . . . .  D  ADDR  00A9H  NOT USED
+SADDR_0. . . . . . . . . . . . . . .  D  ADDR  00A9H  NOT USED
+SADDR_1. . . . . . . . . . . . . . .  D  ADDR  00AAH  NOT USED
+SADEN. . . . . . . . . . . . . . . .  D  ADDR  00B9H  NOT USED
+SADEN_0. . . . . . . . . . . . . . .  D  ADDR  00B9H  NOT USED
+SADEN_1. . . . . . . . . . . . . . .  D  ADDR  00BAH  NOT USED
+SBUF . . . . . . . . . . . . . . . .  D  ADDR  0099H  NOT USED
+SCON . . . . . . . . . . . . . . . .  D  ADDR  0098H  NOT USED
+SINT . . . . . . . . . . . . . . . .  C  ADDR  0023H  NOT USED
+SM0. . . . . . . . . . . . . . . . .  B  ADDR  009FH  NOT USED
+SM1. . . . . . . . . . . . . . . . .  B  ADDR  009EH  NOT USED
+SM2. . . . . . . . . . . . . . . . .  B  ADDR  009DH  NOT USED
+SP . . . . . . . . . . . . . . . . .  D  ADDR  0081H  NOT USED
+SPCON. . . . . . . . . . . . . . . .  D  ADDR  00C3H  NOT USED
+SPCR . . . . . . . . . . . . . . . .  D  ADDR  00D5H  NOT USED
+SPDAT. . . . . . . . . . . . . . . .  D  ADDR  00C5H  NOT USED
+SPDR . . . . . . . . . . . . . . . .  D  ADDR  0086H  NOT USED
+SPSR . . . . . . . . . . . . . . . .  D  ADDR  00AAH  NOT USED
+SPSTA. . . . . . . . . . . . . . . .  D  ADDR  00C4H  NOT USED
+T0 . . . . . . . . . . . . . . . . .  B  ADDR  00B4H  NOT USED
+T1 . . . . . . . . . . . . . . . . .  B  ADDR  00B5H  NOT USED
+T2CON. . . . . . . . . . . . . . . .  D  ADDR  00C8H  NOT USED
+T2MOD. . . . . . . . . . . . . . . .  D  ADDR  00C9H  NOT USED
+TB8. . . . . . . . . . . . . . . . .  B  ADDR  009BH  NOT USED
+TCLK . . . . . . . . . . . . . . . .  B  ADDR  00CCH  NOT USED
+TCON . . . . . . . . . . . . . . . .  D  ADDR  0088H  NOT USED
+TF0. . . . . . . . . . . . . . . . .  B  ADDR  008DH
+TF1. . . . . . . . . . . . . . . . .  B  ADDR  008FH  NOT USED
+TF2. . . . . . . . . . . . . . . . .  B  ADDR  00CFH  NOT USED
+TH0. . . . . . . . . . . . . . . . .  D  ADDR  008CH
+TH1. . . . . . . . . . . . . . . . .  D  ADDR  008DH  NOT USED
+TH2. . . . . . . . . . . . . . . . .  D  ADDR  00CDH  NOT USED
+TI . . . . . . . . . . . . . . . . .  B  ADDR  0099H  NOT USED
+TIMER0 . . . . . . . . . . . . . . .  C  ADDR  000BH  NOT USED
+TIMER1 . . . . . . . . . . . . . . .  C  ADDR  001BH  NOT USED
+TIMER2 . . . . . . . . . . . . . . .  C  ADDR  002BH  NOT USED
+TL0. . . . . . . . . . . . . . . . .  D  ADDR  008AH
+TL1. . . . . . . . . . . . . . . . .  D  ADDR  008BH  NOT USED
+TL2. . . . . . . . . . . . . . . . .  D  ADDR  00CCH  NOT USED
+TMOD . . . . . . . . . . . . . . . .  D  ADDR  0089H
+TR0. . . . . . . . . . . . . . . . .  B  ADDR  008CH
+TR1. . . . . . . . . . . . . . . . .  B  ADDR  008EH  NOT USED
+TR2. . . . . . . . . . . . . . . . .  B  ADDR  00CAH  NOT USED
+TXD. . . . . . . . . . . . . . . . .  B  ADDR  00B1H  NOT USED
+WAIT1. . . . . . . . . . . . . . . .  C  ADDR  0013H
+WAIT10 . . . . . . . . . . . . . . .  C  ADDR  00D4H
+WAIT11 . . . . . . . . . . . . . . .  C  ADDR  00EFH
+WAIT12 . . . . . . . . . . . . . . .  C  ADDR  0100H
+WAIT13 . . . . . . . . . . . . . . .  C  ADDR  011BH
+WAIT14 . . . . . . . . . . . . . . .  C  ADDR  012CH
+WAIT15 . . . . . . . . . . . . . . .  C  ADDR  0147H
+WAIT16 . . . . . . . . . . . . . . .  C  ADDR  0158H
+WAIT2. . . . . . . . . . . . . . . .  C  ADDR  0024H
+WAIT3. . . . . . . . . . . . . . . .  C  ADDR  003FH
+WAIT4. . . . . . . . . . . . . . . .  C  ADDR  0050H
+WAIT5. . . . . . . . . . . . . . . .  C  ADDR  006BH
+WAIT6. . . . . . . . . . . . . . . .  C  ADDR  007CH
+WAIT7. . . . . . . . . . . . . . . .  C  ADDR  0097H
+WAIT8. . . . . . . . . . . . . . . .  C  ADDR  00A8H
+WAIT9. . . . . . . . . . . . . . . .  C  ADDR  00C3H
+WDTCON . . . . . . . . . . . . . . .  D  ADDR  00A7H  NOT USED
+WDTPRG . . . . . . . . . . . . . . .  D  ADDR  00A7H  NOT USED
+WDTRST . . . . . . . . . . . . . . .  D  ADDR  00A6H  NOT USED
+WR . . . . . . . . . . . . . . . . .  B  ADDR  00B6H  NOT USED
